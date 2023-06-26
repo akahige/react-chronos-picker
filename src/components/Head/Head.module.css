@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  flex: 1;
+  color: #121212;
+  font-size: 12px;
+  padding: 8px 0;
+}

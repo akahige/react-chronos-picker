@@ -1,0 +1,10 @@
+.name {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.color {
+  color: #f36a6a;
+}

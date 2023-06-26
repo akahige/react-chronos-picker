@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex: 1;
+  color: #858585;
+  font-size: 12px;
+  line-height: 16px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.current {
+  color: #5865f2;
+}
+
+.event {
+  width: 4px;
+  height: 4px;
+
+  position: absolute;
+  right: 4px;
+  top: 4px;
+
+  border-radius: 4px;
+  background: #62d0a2;
+}
+
+.selected {
+  border-radius: 8px;
+  background: #5865f2;
+  color: #fff;
+}

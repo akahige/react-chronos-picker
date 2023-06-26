@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  color: #121212;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+
+.navigation {
+  display: flex;
+  gap: 8px;
+}
+
+.icon {
+  display: flex;
+  gap: 8px;
+}
