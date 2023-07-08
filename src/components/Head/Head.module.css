@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex: 1;
-  color: #121212;
+  color: var(--color-gray);
   font-size: 12px;
   padding: 8px 0;
 }

@@ -6,5 +6,5 @@
 }
 
 .color {
-  color: #f36a6a;
+  color: var(--color-weekend);
 }

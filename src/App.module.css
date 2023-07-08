@@ -9,6 +9,8 @@ body {
 }
 
 .container {
-  width: 264px;
-  height: 284px;
+  display: flex;
+  gap: 50px;
+  width: 578px;
+  height: 325px;
 }
