@@ -5,5 +5,5 @@ declare type ChronosPickerProps = {
   format: string;
   theme: string;
   onDateChange: (date: string[]) => void;
-  minMax: [string, string];
+  minMax: string[];
 };

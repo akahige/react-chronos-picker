@@ -11,16 +11,16 @@
 .title {
   display: flex;
   gap: 8px;
+  cursor: pointer;
+}
+
+.title:hover {
+  scale: 1.1;
 }
 
 .navigation {
   display: flex;
   gap: 8px;
-}
-
-.down {
-  display: flex;
-  cursor: pointer;
 }
 
 .icon {
@@ -29,8 +29,7 @@
   cursor: pointer;
 }
 
-.icon svg,
-.down svg {
+.icon svg {
   fill: var(--color-gray);
 }
 
@@ -40,9 +39,8 @@
   opacity: 0.2;
 }
 
-.icon:hover,
-.down:hover {
-  opacity: 0.5;
+.icon:hover {
+  scale: 1.1;
 }
 
 .dropDown {

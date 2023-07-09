@@ -12,7 +12,7 @@ const events = [
 ];
 
 function App() {
-  const [date, setDate] = useState(["2023-07-14", "2023-07-18"]);
+  const [date, setDate] = useState(["2023-07-18"]);
   const [date2, setDate2] = useState(["2023-07-14", "2023-07-18"]);
 
   const handleDateChange = (neDate) => {
@@ -43,7 +43,7 @@ function App() {
           date={date}
           format={"YYYY-MM-DD"}
           onDateChange={handleDateChange2}
-          minMax={["2019-06-14", "2029-08-18"]}
+          minMax={["2022-06-14", "2023-08-18"]}
         />
       </div>
     </>

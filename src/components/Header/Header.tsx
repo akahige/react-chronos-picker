@@ -5,13 +5,20 @@ import Chronos, { subtract, add, isBetween } from "@asidd/chronos";
 import ScrollingSelect from "../ScrollingSelect";
 import { useState } from "react";
 import { getMonthsList, getYearsList } from "../../helpers";
+import useDispatch from "../../hooks/useDispatch";
+import useProps from "../../hooks/useProps";
+import useDateState from "../../hooks/useDateState";
 
-function Header({ date, setChronos, minMax }: HeaderProps) {
+function Header() {
+  const { chronos } = useDateState();
+  const { minMax } = useProps();
+  const dispatch = useDispatch();
+
   const [open, setOpen] = useState(false);
-  const year = date.format("YYYY");
-  const month = date.format("MMMM");
+  const year = chronos.format("YYYY");
+  const month = chronos.format("MMMM");
 
-  const newDate = date.format("YYYY-MM");
+  const newDate = chronos.format("YYYY-MM");
 
   const min = new Chronos(minMax[0], "YYYY-MM");
   const max = new Chronos(minMax[1], "YYYY-MM");
@@ -22,26 +29,26 @@ function Header({ date, setChronos, minMax }: HeaderProps) {
   const isNextEnabled = isBetween(nextDate, min, max, "months", true);
 
   const years = getYearsList(min, max);
-  const months = getMonthsList(date, min, max);
+  const months = getMonthsList(chronos, min, max);
 
   const handleNext = () => {
     if (isNextEnabled) {
-      setChronos(nextDate);
+      dispatch({ type: "SET_CHRONOS", payload: nextDate });
     }
   };
 
   const handlePrevius = () => {
     if (isPreviusEnabled) {
-      setChronos(previusDate);
+      dispatch({ type: "SET_CHRONOS", payload: previusDate });
     }
   };
 
   const handleYearSelect = (year: Chronos) => {
-    setChronos(year);
+    dispatch({ type: "SET_CHRONOS", payload: year });
   };
 
   const handleMonthSelect = (month: Chronos) => {
-    setChronos(month);
+    dispatch({ type: "SET_CHRONOS", payload: month });
     setOpen(false);
   };
 
@@ -57,8 +64,8 @@ function Header({ date, setChronos, minMax }: HeaderProps) {
             setOpen(true);
           }}
         >
-          <div className={style.down}>{month}</div>
-          <div className={style.down}>{year}</div>
+          <div>{month}</div>
+          <div>{year}</div>
         </div>
         <div className={style.navigation}>
           <div className={prevClass} onClick={handlePrevius}>
@@ -73,14 +80,14 @@ function Header({ date, setChronos, minMax }: HeaderProps) {
         <div className={style.dropDown}>
           <ScrollingSelect
             items={years}
-            selected={date.format("YYYY")}
+            selected={chronos.format("YYYY")}
             gap={3}
             onChange={handleYearSelect}
             caption={(item) => item.format("YYYY")}
           />
           <ScrollingSelect
             items={months}
-            selected={date.format("MMMM")}
+            selected={chronos.format("MMMM")}
             gap={3}
             onChange={handleMonthSelect}
             caption={(item) => item.format("MMMM")}

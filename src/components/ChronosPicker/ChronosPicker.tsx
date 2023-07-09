@@ -3,7 +3,8 @@ import { getWeeksInMonth, getWeekdayNames } from "@asidd/chronos";
 import style from "./ChronosPicker.module.css";
 import Month from "../Month";
 import Header from "../Header";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import DateProvider from "../../Provider";
 // components as props
 // custom Day view | default Day view
 // custom Month view | default Month view
@@ -20,27 +21,41 @@ function ReactChronosPicker({
   minMax,
 }: ChronosPickerProps) {
   // const chronos = new Chronos(date, format);
-  const [chronos, setChronos] = useState(new Chronos(date[0], format));
+  // const [chronos, setChronos] = useState();
 
-  const weeks = getWeeksInMonth(chronos, 0, "YYYY-MM-DD");
-  const days = getWeekdayNames(0, "short");
+  const newState = useMemo(() => {
+    // const weeks = getWeeksInMonth(chronos, 0, format);
+    const days = getWeekdayNames(0, "short");
+
+    return {
+      // weeks,
+      days,
+      format,
+      minMax,
+      weekend,
+      theme,
+    };
+  }, [format, minMax, weekend, theme]);
 
   const className = `${style["theme-" + theme]} ${style.container}`;
 
   return (
-    <div className={className}>
-      <Header date={chronos} setChronos={setChronos} minMax={minMax} />
-      <Month
-        weeks={weeks}
-        days={days}
-        weekend={weekend}
-        date={chronos}
-        selected={date}
-        events={events}
-        onDateChange={onDateChange}
-        minMax={minMax}
-      />
-    </div>
+    <DateProvider newState={newState} date={date}>
+      <div className={className}>
+        <Header />
+        <Month onDateChange={onDateChange} />
+        {/* <Month
+          weeks={newState.weeks}
+          days={newState.days}
+          weekend={weekend}
+          date={chronos}
+          selected={date}
+          events={events}
+          onDateChange={onDateChange}
+          minMax={minMax}
+        /> */}
+      </div>
+    </DateProvider>
   );
 }
 

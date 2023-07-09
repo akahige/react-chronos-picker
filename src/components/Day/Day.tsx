@@ -1,18 +1,16 @@
 import Chronos, { isBetween } from "@asidd/chronos";
 import style from "./Day.module.css";
 import { calculateEventDetails } from "../../helpers";
+import useDispatch from "../../hooks/useDispatch";
+import useDateState from "../../hooks/useDateState";
+import useProps from "../../hooks/useProps";
 
-const Day = ({
-  day,
-  date,
-  events,
-  selected,
-  handleSelect,
-  isDateRange,
-  setHovered,
-  hovered,
-  minMax,
-}: DayProps) => {
+const Day = ({ day }: DayProps) => {
+  const { selected, hovered, date, events, chronos } = useDateState();
+  const { minMax, weekend, format } = useProps();
+
+  const isDateRange = date.length === 2;
+
   const {
     lpDay,
     isStartDay,
@@ -30,11 +28,13 @@ const Day = ({
     minMax
   );
 
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     if (isDateRange) {
       if (selected.length === 2 || selected.length === 0) {
         handleSelect([day]);
-        setHovered(day);
+        dispatch({ type: "SET_HOVERED", payload: day });
       } else {
         const start = new Chronos(selected[0], "YYYY-MM-DD");
         const hDate = new Chronos(hovered, "YYYY-MM-DD");
@@ -44,7 +44,7 @@ const Day = ({
           handleSelect([selected[0], day]);
         } else {
           handleSelect([day]);
-          setHovered(day);
+          dispatch({ type: "SET_HOVERED", payload: day });
         }
       }
     } else {
@@ -54,14 +54,18 @@ const Day = ({
 
   const handleHover = () => {
     if (isDateRange && selected.length === 1) {
-      setHovered(day);
+      dispatch({ type: "SET_HOVERED", payload: day });
     }
+  };
+
+  const handleSelect = (d: string[]) => {
+    dispatch({ type: "SET_SELECTED", payload: d });
   };
 
   const current = new Chronos();
   const isCurrentDay = current.format("YYYY-MM-DD") === day;
   const isCurrentMonth =
-    date.format("MM") === new Chronos(day, "YYYY-MM-DD").format("MM");
+    chronos.format("MM") === new Chronos(day, "YYYY-MM-DD").format("MM");
 
   const classes = [style.container];
   if (isCurrentDay) classes.push(style.current);
