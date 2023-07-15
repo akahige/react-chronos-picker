@@ -16,7 +16,7 @@ function dateReducer(state: DateState, action: DateAction): DateState {
       };
     }
     case DateActionType.HANDLE_CLICK: {
-      const { day, format, onDateChange } = action.payload;
+      const { day, format } = action.payload;
       const start = new Chronos(state.selected[0], format);
       const hDate = new Chronos(state.hovered, format);
       const isInBetween = isBetween(hDate, start, hDate, "days", true);
@@ -26,15 +26,17 @@ function dateReducer(state: DateState, action: DateAction): DateState {
           return { ...state, selected: [day], hovered: day };
         } else {
           if (state.selected.length === 1 && isInBetween) {
-            onDateChange([state.selected[0], day]);
-            return { ...state, selected: [state.selected[0], day] };
+            return {
+              ...state,
+              selected: [state.selected[0], day],
+              isDone: true,
+            };
           } else {
             return { ...state, selected: [day], hovered: day };
           }
         }
       } else {
-        onDateChange([day]);
-        return { ...state, selected: [day] };
+        return { ...state, selected: [day], isDone: true };
       }
     }
 

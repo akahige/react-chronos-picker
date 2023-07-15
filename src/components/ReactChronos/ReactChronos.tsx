@@ -11,6 +11,7 @@ function ReactChronos({
   theme,
   date,
   isDateRange,
+  onDateChange,
   ...props
 }: ReactChronosProps) {
   const newState = useChronosPickerConfig(props);
@@ -19,7 +20,11 @@ function ReactChronos({
 
   return (
     <PropsProvider value={newState}>
-      <DateProvider date={date} isDateRange={isDateRange}>
+      <DateProvider
+        date={date}
+        isDateRange={isDateRange}
+        onDateChange={onDateChange}
+      >
         <div className={className}>
           <SliceProvider selector={chronosSelector}>
             {headerElement}

@@ -1,6 +1,6 @@
 import { ConstantsContext } from "../contexts";
 
-export function PropsProvider({ children, value }: PropsProviderProps) {
+function PropsProvider({ children, value }: PropsProviderProps) {
   return (
     <ConstantsContext.Provider value={value}>
       {children}

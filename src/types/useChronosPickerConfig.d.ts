@@ -11,8 +11,8 @@ declare type ChronosPickerConfigProps = {
   format: string;
   monthFormat?: string;
   weekDayFormat?: string;
-  onDateChange: (date: string[]) => void;
   minMax: string[];
   dayElement?: ReactNode;
   dayNameElement?: ReactNode;
+  [key: string]: any;
 };

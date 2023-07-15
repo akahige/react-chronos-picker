@@ -22,4 +22,5 @@ declare type DateProviderProps = {
   children: ReactNode;
   date: string[];
   isDateRange?: boolean;
+  onDateChange?: (date: string[]) => void;
 };

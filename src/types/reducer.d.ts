@@ -19,7 +19,7 @@ declare type DateAction =
       payload: {
         day: string;
         format: string;
-        onDateChange: (date: string[]) => void;
+        isDone: boolean;
       };
     }
   | {
@@ -33,4 +33,5 @@ declare interface DateState {
   hovered: Chronos;
   selected: string[];
   isDateRange?: boolean;
+  isDone: boolean;
 }

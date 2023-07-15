@@ -1,5 +1,5 @@
 import style from "./App.module.css";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Header from "./components/Header";
 import Name from "./components/Name";
 import Day from "./components/Day";
@@ -15,6 +15,11 @@ const events = [
   { date: "2023-07-04", color: "#62D0A2" },
 ];
 
+const minMax = ["2023-06-14", "2023-08-18"];
+const dayElement = <Day />;
+const dayNameElement = <Name />;
+const headerElement = <Header />;
+
 function App() {
   const [date, setDate] = useState(["2023-07-18"]);
   const [date2, setDate2] = useState(["2023-07-18", "2023-07-19"]);
@@ -28,9 +33,9 @@ function App() {
     setDate2(neDate);
   };
 
-  const handleDateChange3 = (neDate) => {
+  const handleDateChange3 = useCallback((neDate) => {
     setDate3(neDate);
-  };
+  });
 
   return (
     <>
@@ -64,7 +69,7 @@ function App() {
           dayNameElement={<Name />}
           headerElement={<Header />}
         >
-          <input type="text" value={date.join(" - ")} />
+          <input type="text" value={date.join(" - ")} readOnly />
         </ReactChronosPicker>
         <div className={style.box}>
           <ReactChronos
@@ -76,10 +81,10 @@ function App() {
             date={date3}
             format={"YYYY-MM-DD"}
             onDateChange={handleDateChange3}
-            minMax={["2023-06-14", "2023-08-18"]}
-            dayElement={<Day />}
-            dayNameElement={<Name />}
-            headerElement={<Header />}
+            minMax={minMax}
+            dayElement={dayElement}
+            dayNameElement={dayNameElement}
+            headerElement={headerElement}
           />
         </div>
       </div>
