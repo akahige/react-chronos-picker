@@ -33,9 +33,9 @@ function App() {
     setDate2(neDate);
   };
 
-  const handleDateChange3 = useCallback((neDate) => {
+  const handleDateChange3 = (neDate) => {
     setDate3(neDate);
-  });
+  };
 
   return (
     <>
