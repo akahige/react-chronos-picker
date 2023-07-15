@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { GlobalContext } from "../Provider";
+import { GlobalContext } from "../contexts";
 
 const useDateState = () => {
   const state = useContext(GlobalContext);

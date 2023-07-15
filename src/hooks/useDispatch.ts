@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DispatchContext } from "../Provider";
+import { DispatchContext } from "../contexts";
 
 const useDispatch = () => {
   const dispatch = useContext(DispatchContext);

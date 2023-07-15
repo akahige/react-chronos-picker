@@ -5,17 +5,6 @@ declare type SelectItemProps = {
   item: any;
 };
 
-// declare global {
-//   namespace JSX {
-//     interface IntrinsicElements {
-//       "scrolling-select": React.DetailedHTMLProps<
-//         React.HTMLAttributes<HTMLElement> & ScrollingSelectProps,
-//         HTMLElement
-//       >;
-//     }
-//   }
-// }
-
 declare interface ScrollingSelectProps {
   items: any[];
   selected: string;

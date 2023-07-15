@@ -1,0 +1,6 @@
+export enum DateActionType {
+  INIT = "INIT",
+  SET_CHRONOS = "SET_CHRONOS",
+  HANDLE_CLICK = "HANDLE_CLICK",
+  HANDLE_HOVER = "HANDLE_HOVER",
+}

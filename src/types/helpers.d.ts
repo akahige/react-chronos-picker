@@ -7,20 +7,17 @@ declare type GetMonthsList = (
 ) => Chronos[];
 
 type CalculateEventDetailsReturn = {
-  lpDay: Chronos;
   isStartDay: boolean;
   isEndDay: boolean;
   inRange: boolean;
   isHovered: boolean;
-  filtredEvents: DateEvent[];
-  isEnabled: boolean;
 };
 
-declare type CalculateEventDetails = (
+declare type CalculateValues = (
   day: string,
-  events: DateEvent[],
+  lpDay: Chronos,
+  format: string,
   selected: string[],
   hovered: string,
-  isDateRange: boolean,
-  minMax: string[]
+  isDateRange: boolean
 ) => CalculateEventDetailsReturn;

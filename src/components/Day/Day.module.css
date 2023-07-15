@@ -8,7 +8,8 @@
   align-items: center;
   position: relative;
   cursor: pointer;
-  height: 33px;
+  min-height: 33px;
+  min-width: 33px;
 }
 
 .disabled {
@@ -22,13 +23,15 @@
   position: relative;
   opacity: 0.4;
   cursor: default;
-  height: 33px;
+  min-height: 33px;
+  min-width: 33px;
 }
 
 .empty {
   display: flex;
   flex: 1;
-  height: 33px;
+  min-height: 33px;
+  min-width: 33px;
 }
 
 .container:hover {
@@ -48,7 +51,6 @@
   top: 4px;
   /* border: 1px solid var(--color-white); */
   border-radius: 4px;
-  background: var(--color-event);
 }
 
 .start {

@@ -1,16 +1,10 @@
-import Chronos, { isBetween } from "@asidd/chronos";
+import { FC } from "react";
+import Chronos from "@asidd/chronos";
 import style from "./Day.module.css";
-import { calculateEventDetails } from "../../helpers";
-import useDispatch from "../../hooks/useDispatch";
-import useDateState from "../../hooks/useDateState";
+import useLocaleContext from "../../hooks/useLocaleContext";
 import useProps from "../../hooks/useProps";
 
-const Day = ({ day }: DayProps) => {
-  const { selected, hovered, date, events, chronos } = useDateState();
-  const { minMax, weekend, format } = useProps();
-
-  const isDateRange = date.length === 2;
-
+const Day: FC = () => {
   const {
     lpDay,
     isStartDay,
@@ -19,76 +13,56 @@ const Day = ({ day }: DayProps) => {
     isHovered,
     filtredEvents,
     isEnabled,
-  } = calculateEventDetails(
+    chronos,
     day,
-    events,
-    selected,
-    hovered,
-    isDateRange,
-    minMax
-  );
+    onClick,
+    onMouseEnter,
+  } = useLocaleContext();
 
-  const dispatch = useDispatch();
-
-  const handleClick = () => {
-    if (isDateRange) {
-      if (selected.length === 2 || selected.length === 0) {
-        handleSelect([day]);
-        dispatch({ type: "SET_HOVERED", payload: day });
-      } else {
-        const start = new Chronos(selected[0], "YYYY-MM-DD");
-        const hDate = new Chronos(hovered, "YYYY-MM-DD");
-        const isInBetween = isBetween(hDate, start, hDate, "days", true);
-
-        if (selected.length === 1 && isInBetween) {
-          handleSelect([selected[0], day]);
-        } else {
-          handleSelect([day]);
-          dispatch({ type: "SET_HOVERED", payload: day });
-        }
-      }
-    } else {
-      handleSelect([day]);
-    }
-  };
-
-  const handleHover = () => {
-    if (isDateRange && selected.length === 1) {
-      dispatch({ type: "SET_HOVERED", payload: day });
-    }
-  };
-
-  const handleSelect = (d: string[]) => {
-    dispatch({ type: "SET_SELECTED", payload: d });
-  };
+  const { format } = useProps();
 
   const current = new Chronos();
-  const isCurrentDay = current.format("YYYY-MM-DD") === day;
+  const isCurrentDay = current.format(format) === day;
   const isCurrentMonth =
-    chronos.format("MM") === new Chronos(day, "YYYY-MM-DD").format("MM");
+    chronos.format("MM") === new Chronos(day, format).format("MM");
 
-  const classes = [style.container];
-  if (isCurrentDay) classes.push(style.current);
-  if (isStartDay) classes.push(style.start);
-  if (isEndDay) classes.push(style.end);
-  if (inRange) classes.push(style.range);
-  if (isHovered) classes.push(style.range);
+  const classNames = [
+    style.container,
+    isCurrentDay && style.current,
+    isStartDay && style.start,
+    isEndDay && style.end,
+    inRange && style.range,
+    isHovered && style.range,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   if (!isEnabled) {
     return <div className={style.disabled}>{lpDay.format("DD")}</div>;
   }
 
+  const handleClick = () => {
+    onClick(day);
+  };
+  const handleMouseEnter = () => {
+    onMouseEnter(day);
+  };
+
   return (
     <>
       {isCurrentMonth ? (
         <div
-          className={classes.join(" ")}
+          className={classNames}
           onClick={handleClick}
-          onMouseEnter={handleHover}
+          onMouseEnter={handleMouseEnter}
         >
           {lpDay.format("DD")}
-          {filtredEvents.map((e) => (
-            <div key={e.date} className={style.event}></div>
+          {filtredEvents.map((e: DateEvent) => (
+            <div
+              key={e.date}
+              className={style.event}
+              style={{ background: e.color }}
+            ></div>
           ))}
         </div>
       ) : (

@@ -27,20 +27,17 @@ export const getMonthsList: GetMonthsList = (date, min, max) => {
 };
 
 // Helper function to calculate event details
-export const calculateEventDetails: CalculateEventDetails = (
+export const calculateValues: CalculateValues = (
   day,
-  events,
+  lpDay,
+  format,
   selected,
   hovered,
-  isDateRange,
-  minMax
+  isDateRange
 ) => {
-  const lpDay = new Chronos(day, "YYYY-MM-DD");
-  const selectedStart = new Chronos(selected[0], "YYYY-MM-DD");
-  const selectedEnd = new Chronos(selected[selected.length - 1], "YYYY-MM-DD");
-  const hovredDate = new Chronos(hovered, "YYYY-MM-DD");
-  const min = new Chronos(minMax[0], "YYYY-MM-DD");
-  const max = new Chronos(minMax[1], "YYYY-MM-DD");
+  const selectedStart = new Chronos(selected[0], format);
+  const selectedEnd = new Chronos(selected[selected.length - 1], format);
+  const hovredDate = new Chronos(hovered, format);
 
   const isStartDay = selected[0] === day;
   const isEndDay =
@@ -51,17 +48,10 @@ export const calculateEventDetails: CalculateEventDetails = (
   const isHovered =
     isDateRange && isBetween(lpDay, selectedStart, hovredDate, "days");
 
-  const filtredEvents = events.filter((e) => e.date === day);
-
-  const isEnabled = isBetween(lpDay, min, max, "days", true);
-
   return {
-    lpDay,
     isStartDay,
     isEndDay,
     inRange,
     isHovered,
-    filtredEvents,
-    isEnabled,
   };
 };

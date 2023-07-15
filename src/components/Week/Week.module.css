@@ -1,0 +1,11 @@
+.week {
+  display: flex;
+  flex: 1;
+}
+
+.day {
+  display: flex;
+  font-size: 12px;
+  flex: 1;
+  color: var(--color-day);
+}

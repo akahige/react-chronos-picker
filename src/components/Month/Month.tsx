@@ -1,44 +1,29 @@
-import { useState } from "react";
-import Day from "../Day";
+import { useMemo } from "react";
 import Head from "../Head";
-import Name from "../Name";
 import style from "./Month.module.css";
-import useDateState from "../../hooks/useDateState";
 import useProps from "../../hooks/useProps";
 import { getWeeksInMonth } from "@asidd/chronos";
-import useDispatch from "../../hooks/useDispatch";
+import useLocaleContext from "../../hooks/useLocaleContext";
+import Week from "../Week/Week";
 
-function Month({ onDateChange }: MonthProps) {
-  const { chronos } = useDateState();
-  const { days, weekend, format } = useProps();
-  // const [selectedDate, setSelectedDate] = useState(selected);
+function Month() {
+  const chronos = useLocaleContext();
+  const { format } = useProps();
 
-  const dispatch = useDispatch();
-
-  const weeks = getWeeksInMonth(chronos, 0, format);
+  const weeks = useMemo(
+    () => getWeeksInMonth(chronos, 0, format),
+    [chronos, format]
+  );
 
   return (
     <div className={style.container}>
       <div className={style.head}>
-        <Head>
-          {days.map((d, i) => (
-            <div key={d} className={style.name}>
-              <Name name={d} isWeekend={weekend.includes(i)} />
-            </div>
-          ))}
-        </Head>
+        <Head />
       </div>
       <div className={style.weeks}>
-        {weeks.map((w, i) => (
-          <div key={i} className={style.week}>
-            {w.map((d, j) => (
-              <div key={d} className={style.day}>
-                <Day day={d} isWeekend={weekend.includes(j)} />
-              </div>
-            ))}
-          </div>
+        {weeks.map((w: string[], i: number) => (
+          <Week key={i} days={w} />
         ))}
-        <div className={style.week}> </div>
       </div>
     </div>
   );
