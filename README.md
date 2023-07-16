@@ -133,6 +133,105 @@ In custom elements, you can use various hooks provided by React Chronos Picker t
 
 The `useLocalContext()` hook provides different values depending on the element.
 
+## Components
+
+### ReactChronos
+
+This is the base component of the library and is responsible for rendering the calendar itself.
+
+```jsx
+<ReactChronos
+  theme={"light"}
+  weekend={weekend}
+  monthFormat={"MMMM"}
+  weekDayFormat={"long"}
+  events={events}
+  date={date}
+  format={"YYYY-MM-DD"}
+  onDateChange={handleDateChange}
+  minMax={minMax}
+  dayElement={<CustomDay />}
+  dayNameElement={<CustomDayName />}
+  headerElement={<CustomHeader />}
+/>
+```
+
+Props:
+
+- `theme`: Determines the theme of the calendar. Can be either `"light"` or `"dark"`.
+- `weekend`: An array of numbers representing the weekend days. Sunday is `0`, Monday is `1`, etc.
+- `monthFormat`: Format string for the month label.
+- `weekStart`: Determines the start day of the week. Sunday is `0`, Monday is `1`, etc.
+- `weekDayFormat`: Determines the format of the week day names. Can be `"long"`, `"short"`, or `"narrow"`.
+- `events`: An array of event dates.
+- `date`: The currently selected date.
+- `format`: Format string for the date.
+- `onDateChange`: Function to handle date change events.
+- `minMax`: An array with two dates determining the minimum and maximum selectable dates.
+- `dayElement`: A custom day element.
+- `dayNameElement`: A custom day name element.
+- `headerElement`: A custom header element.
+
+### ReactChronosPicker
+
+This is a wrapper component that makes `ReactChronos` work as a date picker. It can be attached to any input field or button.
+
+```jsx
+<ReactChronosPicker
+  theme={"light"}
+  weekend={weekend}
+  monthFormat={"MMM"}
+  weekDayFormat={"short"}
+  events={events}
+  date={date}
+  format={"YYYY-MM-DD"}
+  onDateChange={handleDateChange}
+  minMax={minMax}
+  dayElement={<CustomDay />}
+  dayNameElement={<CustomDayName />}
+  headerElement={<CustomHeader />}
+>
+  <button>{date.join(" | ")}</button>
+</ReactChronosPicker>
+```
+
+In addition to all the props of `ReactChronos`, `ReactChronosPicker` accepts a `children` prop, which can be any React node that should trigger the date picker when clicked.
+
+### Default UI Components
+
+The library provides some pre-defined components that provide a simple UI out of the box. These are mainly meant to be used as the `dayElement`, `dayNameElement`, and `headerElement` props in `ReactChronos` and `ReactChronosPicker`.
+
+You can import the default components like this:
+
+```jsx
+import { Name, Header, Day } from "@asidd/react-chronos-picker";
+```
+
+And then use them in your component:
+
+```jsx
+<ReactChronos
+  dayElement={<Day />}
+  dayNameElement={<Name />}
+  headerElement={<Header />}
+  ...
+/>
+```
+
+#### Name
+
+This component is used to render the names of the weekdays.
+
+#### Header
+
+This component is used to render the header of the calendar, which includes the month and year labels, as well as the previous and next buttons.
+
+#### Day
+
+This component is used to render each day in the calendar.
+
+You can use these components as they are, or create your own custom components. If you decide to create your own components, you can make use of the hooks provided by the library to access the calendar state and control its behavior.
+
 ## API References
 
 ### useLocalContext
@@ -145,8 +244,6 @@ When `useLocalContext` is used within `dayElement`, it provides access to the fo
 
 - `currentDay`: Represents the day of the month for the current day being rendered as a Chronos object.
 
-- `filtredEvents`: Represents an array of events specific to the current day.
-
 - `isEnabled`: A boolean indicating whether the day can be selected.
 
 - `isDateRange`: A boolean indicating whether the date picker is in range selection mode.
@@ -155,7 +252,7 @@ When `useLocalContext` is used within `dayElement`, it provides access to the fo
 
 - `chronos`: Represents the current month being rendered as a Chronos object.
 
-- `day`: The current day as a string in "YYYY-MM-DD" format.
+- `day`: The current day as a string in the format used in the `ReactChronos` props.
 
 - `onClick`: Function that handles click events on the current day.
 
