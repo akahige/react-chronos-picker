@@ -4,6 +4,15 @@ React Chronos Picker is a powerful, flexible, and highly customizable date picki
 
 ## Visuals
 
+<table>
+  <tr>
+    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/ac3f08fa-1912-49a0-86b1-bf566dadd139" alt="Screenshot 2023-07-16 at 18-15-48 React Chronos Picker" width="300"></td>
+    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/3ef41181-25b8-44be-94c1-8ecc1181bc96" alt="Screenshot 2023-07-16 at 18-13-57 React Chronos Picker" width="300"></td>
+  </tr>
+</table>
+
+
+
 ## Installation
 
 Use npm to install React Chronos Picker in your project:
