@@ -37,15 +37,15 @@ const ReactChronosPicker: React.FC<ReactChronosPickerProps> = ({
   }, [wrapperRef]);
 
   return (
-    <div>
-      <div className={style.container} onClick={() => setOpen(true)}>
-        {props.children}
+    <div className={style.container}>
+      <div onClick={() => setOpen(true)}>{props.children}</div>
+      <div className={style.relative}>
+        {open && (
+          <div ref={wrapperRef} className={style.picker}>
+            <ReactChronos {...props} onDateChange={handleDateChange} />
+          </div>
+        )}
       </div>
-      {open && (
-        <div ref={wrapperRef} className={style.picker}>
-          <ReactChronos {...props} onDateChange={handleDateChange} />
-        </div>
-      )}
     </div>
   );
 };

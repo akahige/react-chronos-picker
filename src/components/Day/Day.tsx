@@ -6,12 +6,11 @@ import useProps from "../../hooks/useProps";
 
 const Day: FC = () => {
   const {
-    lpDay,
+    dayOfMonth,
     isStartDay,
     isEndDay,
     inRange,
     isHovered,
-    filtredEvents,
     isEnabled,
     chronos,
     day,
@@ -19,12 +18,14 @@ const Day: FC = () => {
     onMouseEnter,
   } = useLocaleContext();
 
-  const { format } = useProps();
+  const { format, events } = useProps();
 
   const current = new Chronos();
   const isCurrentDay = current.format(format) === day;
   const isCurrentMonth =
     chronos.format("MM") === new Chronos(day, format).format("MM");
+
+  const filtredEvents = events.filter((e: DateEvent) => e.date === day);
 
   const classNames = [
     style.container,
@@ -38,7 +39,7 @@ const Day: FC = () => {
     .join(" ");
 
   if (!isEnabled) {
-    return <div className={style.disabled}>{lpDay.format("DD")}</div>;
+    return <div className={style.disabled}>{dayOfMonth.format("DD")}</div>;
   }
 
   const handleClick = () => {
@@ -56,7 +57,7 @@ const Day: FC = () => {
           onClick={handleClick}
           onMouseEnter={handleMouseEnter}
         >
-          {lpDay.format("DD")}
+          {dayOfMonth.format("DD")}
           {filtredEvents.map((e: DateEvent) => (
             <div
               key={e.date}

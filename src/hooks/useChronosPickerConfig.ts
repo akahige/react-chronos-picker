@@ -5,7 +5,6 @@ import { getWeekdayNames } from "@asidd/chronos";
 const useChronosPickerConfig = ({
   weekend,
   format,
-  onDateChange,
   monthFormat = "MMMM",
   weekDayFormat = "narrow",
   minMax,

@@ -1,6 +1,6 @@
 import style from "./ReactChronos.module.css";
 import Month from "../Month";
-import chronosSelector from "../../selectors/chronosSelector";
+import headerSelector from "../../selectors/headerSelector";
 import useChronosPickerConfig from "../../hooks/useChronosPickerConfig";
 import PropsProvider from "../../providers/PropsProvider";
 import DateProvider from "../../providers/DateProvider";
@@ -26,7 +26,7 @@ function ReactChronos({
         onDateChange={onDateChange}
       >
         <div className={className}>
-          <SliceProvider selector={chronosSelector}>
+          <SliceProvider selector={headerSelector()}>
             {headerElement}
             <Month />
           </SliceProvider>

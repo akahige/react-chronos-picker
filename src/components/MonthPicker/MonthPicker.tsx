@@ -4,15 +4,13 @@ import Chronos from "@asidd/chronos";
 import ScrollingSelect from "../ScrollingSelect";
 import { useState } from "react";
 import { getMonthsList, getYearsList } from "../../helpers";
-import useDispatch from "../../hooks/useDispatch";
 import useLocaleContext from "../../hooks/useLocaleContext";
 import style from "./MonthPicker.module.css";
 import useProps from "../../hooks/useProps";
 
 const MonthPicker: React.FC = () => {
-  const chronos = useLocaleContext();
+  const { chronos, navigateToMonth } = useLocaleContext();
   const { minMax, monthFormat } = useProps();
-  const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
 
@@ -23,11 +21,11 @@ const MonthPicker: React.FC = () => {
   const months = getMonthsList(chronos, min, max);
 
   const handleYearSelect = (year: Chronos) => {
-    dispatch({ type: "SET_CHRONOS", payload: year });
+    navigateToMonth(year);
   };
 
   const handleMonthSelect = (month: Chronos) => {
-    dispatch({ type: "SET_CHRONOS", payload: month });
+    navigateToMonth(month);
     setOpen(false);
   };
 

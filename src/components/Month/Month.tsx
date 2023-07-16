@@ -7,7 +7,7 @@ import useLocaleContext from "../../hooks/useLocaleContext";
 import Week from "../Week/Week";
 
 function Month() {
-  const chronos = useLocaleContext();
+  const { chronos } = useLocaleContext();
   const { format } = useProps();
 
   const weeks = useMemo(

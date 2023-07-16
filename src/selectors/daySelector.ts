@@ -6,22 +6,22 @@ import useDispatch from "../hooks/useDispatch";
 const daySelector =
   (day: string, index: number) => (state: any, props: any) => {
     const { selected, hovered, chronos, isDateRange } = state;
-    const { minMax, weekend, format, events, onDateChange } = props;
+    const { minMax, weekend, format, onDateChange } = props;
 
     // const isDateRange = date.length === 2;
     const isWeekend = weekend.includes(index);
 
-    const { lpDay, filtredEvents, isEnabled } = useMemo(() => {
+    const { lpDay, isEnabled } = useMemo(() => {
       const lpDay = new Chronos(day, format);
       const min = new Chronos(minMax[0], format);
       const max = new Chronos(minMax[1], format);
 
-      const filtredEvents = events.filter((e: DateEvent) => e.date === day);
       const isEnabled = isBetween(lpDay, min, max, "days", true);
-      return { lpDay, filtredEvents, isEnabled };
-    }, [events, minMax, format]);
+      return { lpDay, isEnabled };
+    }, [minMax, format]);
 
     const dispatch = useDispatch();
+
     const onClick = useCallback(
       (day: string) => {
         dispatch({
@@ -50,8 +50,7 @@ const daySelector =
 
     return {
       ...calculatedValues,
-      lpDay,
-      filtredEvents,
+      dayOfMonth: lpDay,
       isEnabled,
       isDateRange,
       isWeekend,

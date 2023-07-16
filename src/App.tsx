@@ -23,17 +23,17 @@ const headerElement = <Header />;
 function App() {
   const [date, setDate] = useState(["2023-07-18"]);
   const [date2, setDate2] = useState(["2023-07-18", "2023-07-19"]);
-  const [date3, setDate3] = useState([]);
+  const [date3, setDate3] = useState<string[]>([]);
 
-  const handleDateChange = (neDate) => {
+  const handleDateChange = (neDate: string[]) => {
     setDate(neDate);
   };
 
-  const handleDateChange2 = (neDate) => {
+  const handleDateChange2 = (neDate: string[]) => {
     setDate2(neDate);
   };
 
-  const handleDateChange3 = (neDate) => {
+  const handleDateChange3 = (neDate: string[]) => {
     setDate3(neDate);
   };
 
