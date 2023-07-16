@@ -6,12 +6,10 @@ React Chronos Picker is a powerful, flexible, and highly customizable date picki
 
 <table>
   <tr>
-    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/ac3f08fa-1912-49a0-86b1-bf566dadd139" alt="Screenshot 2023-07-16 at 18-15-48 React Chronos Picker" width="300"></td>
-    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/3ef41181-25b8-44be-94c1-8ecc1181bc96" alt="Screenshot 2023-07-16 at 18-13-57 React Chronos Picker" width="300"></td>
+    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/ac3f08fa-1912-49a0-86b1-bf566dadd139" alt="Screenshot 2023-07-16 at 18-15-48 React Chronos Picker"></td>
+    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/3ef41181-25b8-44be-94c1-8ecc1181bc96" alt="Screenshot 2023-07-16 at 18-13-57 React Chronos Picker"></td>
   </tr>
 </table>
-
-
 
 ## Installation
 
@@ -168,17 +166,29 @@ This is the base component of the library and is responsible for rendering the c
 Props:
 
 - `theme`: Determines the theme of the calendar. Can be either `"light"` or `"dark"`.
+
 - `weekend`: An array of numbers representing the weekend days. Sunday is `0`, Monday is `1`, etc.
+
 - `monthFormat`: Format string for the month label.
+
 - `weekStart`: Determines the start day of the week. Sunday is `0`, Monday is `1`, etc.
+
 - `weekDayFormat`: Determines the format of the week day names. Can be `"long"`, `"short"`, or `"narrow"`.
+
 - `events`: An array of event dates.
+
 - `date`: The currently selected date.
+
 - `format`: Format string for the date.
+
 - `onDateChange`: Function to handle date change events.
+
 - `minMax`: An array with two dates determining the minimum and maximum selectable dates.
+
 - `dayElement`: A custom day element.
+
 - `dayNameElement`: A custom day name element.
+
 - `headerElement`: A custom header element.
 
 ### ReactChronosPicker
