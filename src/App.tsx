@@ -1,5 +1,5 @@
 import style from "./App.module.css";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Header from "./components/Header";
 import Name from "./components/Name";
 import Day from "./components/Day";

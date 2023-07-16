@@ -2,14 +2,42 @@
   "name": "@asidd/react-chronos-picker",
   "private": true,
   "version": "0.0.0",
+  "description": "A customizable, flexible and easy to use date picker library for React.",
+  "author": {
+    "name": "Akahige"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akahige/react-chronos-picker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akahige/react-chronos-picker/issues"
+  },
+  "homepage": "https://github.com/akahige/react-chronos-picker#readme",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/ReactChronosPicker.umd.js",
+  "module": "./dist/ReactChronosPicker.es.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "keywords": [
+    "react",
+    "date picker",
+    "react component",
+    "calendar",
+    "date"
+  ],
+  "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "build:types": "tsc --emitDeclarationOnly",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@asidd/chronos": "^1.1.2",
@@ -35,6 +63,7 @@
     "prop-types": "^15.8.1",
     "storybook": "^7.0.27",
     "typescript": "^5.0.2",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^1.0.5"
   }
 }
