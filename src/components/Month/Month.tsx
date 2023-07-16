@@ -8,11 +8,11 @@ import Week from "../Week/Week";
 
 function Month() {
   const { chronos } = useLocaleContext();
-  const { format } = useProps();
+  const { format, weekStart } = useProps();
 
   const weeks = useMemo(
-    () => getWeeksInMonth(chronos, 0, format),
-    [chronos, format]
+    () => getWeeksInMonth(chronos, weekStart, format),
+    [chronos, weekStart, format]
   );
 
   return (

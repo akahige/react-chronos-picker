@@ -5,6 +5,7 @@ import Name from "./components/Name";
 import Day from "./components/Day";
 import ReactChronos from "./components/ReactChronos";
 import ReactChronosPicker from "./components/ReactChronosPicker";
+import useLocaleContext from "./hooks/useLocaleContext";
 
 const weekend = [0, 6];
 const events = [
@@ -16,8 +17,14 @@ const events = [
 ];
 
 const minMax = ["2023-06-14", "2023-08-18"];
-const dayElement = <Day />;
-const dayNameElement = <Name />;
+const CustomDayElement = () => {
+  const { dayOfMonth } = useLocaleContext();
+  return <div className={style.customDay}>{dayOfMonth.format("DD")}</div>;
+};
+const CustomDayNameElement = () => {
+  const { name } = useLocaleContext();
+  return <div className={style.customDay}>{name}</div>;
+};
 const headerElement = <Header />;
 
 function App() {
@@ -41,11 +48,12 @@ function App() {
     <>
       <div className={style.container}>
         <ReactChronosPicker
-          theme={"light"}
+          theme={"dark"}
           weekend={weekend}
           monthFormat={"MMM"}
           weekDayFormat={"short"}
           events={events}
+          weekStart={1}
           date={date2}
           format={"YYYY-MM-DD"}
           onDateChange={handleDateChange2}
@@ -62,6 +70,7 @@ function App() {
           weekend={weekend}
           events={events}
           date={date}
+          weekStart={2}
           format={"YYYY-MM-DD"}
           onDateChange={handleDateChange}
           minMax={["2022-06-14", "2023-08-18"]}
@@ -71,19 +80,20 @@ function App() {
         >
           <input type="text" value={date.join(" - ")} readOnly />
         </ReactChronosPicker>
+
         <div className={style.box}>
           <ReactChronos
             theme={"light"}
             weekend={weekend}
             monthFormat={"MMMM"}
-            weekDayFormat={"long"}
+            weekDayFormat={"short"}
             events={events}
             date={date3}
             format={"YYYY-MM-DD"}
             onDateChange={handleDateChange3}
             minMax={minMax}
-            dayElement={dayElement}
-            dayNameElement={dayNameElement}
+            dayElement={<CustomDayElement />}
+            dayNameElement={<CustomDayNameElement />}
             headerElement={headerElement}
           />
         </div>

@@ -11,9 +11,10 @@ const useChronosPickerConfig = ({
   dayElement,
   dayNameElement,
   events,
+  weekStart = 0,
 }: ChronosPickerConfigProps) => {
   return useMemo(() => {
-    const days = getWeekdayNames(0, weekDayFormat);
+    const days = getWeekdayNames(weekStart, weekDayFormat);
     return {
       monthFormat,
       dayElement,
@@ -23,6 +24,7 @@ const useChronosPickerConfig = ({
       minMax,
       weekend,
       events,
+      weekStart,
     };
   }, [
     format,
@@ -33,6 +35,7 @@ const useChronosPickerConfig = ({
     dayElement,
     dayNameElement,
     events,
+    weekStart,
   ]);
 };
 

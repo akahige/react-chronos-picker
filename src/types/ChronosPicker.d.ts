@@ -12,4 +12,6 @@ declare type ReactChronosProps = {
   dayNameElement?: ReactNode;
   headerElement?: ReactNode;
   isDateRange?: boolean;
+  weekStart?: number;
+  [key: string]: any;
 };
