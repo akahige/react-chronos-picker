@@ -90,12 +90,12 @@ const MyCustomDayName = () => {
 
 // MyCustomHeader
 const MyCustomHeader = () => {
-  const current = useLocaleContext();
+  const { chronos } = useLocaleContext();
 
   return (
     <div>
       <h1>
-        {current.format("MMMM")} {current.format("YYYY")}
+        {chronos.format("MMMM")} {chronos.format("YYYY")}
       </h1>
     </div>
   );
