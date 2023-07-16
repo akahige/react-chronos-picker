@@ -56,10 +56,14 @@
   },
   "dependencies": {
     "@asidd/chronos": "^1.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@asidd/chronos": "^1.1.2",
+    "react": "^18.2.0"
   },
   "devDependencies": {
+    "react-dom": "^18.2.0",
     "@storybook/addon-essentials": "^7.0.27",
     "@storybook/addon-interactions": "^7.0.27",
     "@storybook/addon-links": "^7.0.27",
