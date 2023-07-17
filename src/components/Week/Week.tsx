@@ -9,11 +9,9 @@ function Week({ days }: WeekProps) {
   return (
     <div className={style.week}>
       {days.map((d: string, j: number) => (
-        <div key={d} className={style.day}>
-          <SliceProvider selector={daySelector(d, j)}>
-            {dayElement || new Chronos(d, format).format("DD")}
-          </SliceProvider>
-        </div>
+        <SliceProvider key={d} selector={daySelector(d, j)}>
+          {dayElement || new Chronos(d, format).format("DD")}
+        </SliceProvider>
       ))}
     </div>
   );
