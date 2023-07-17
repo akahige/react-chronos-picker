@@ -1,6 +1,6 @@
 {
   "name": "@asidd/react-chronos-picker",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A customizable, flexible and easy to use date picker library for React.",
   "author": {
     "name": "Akahige"
