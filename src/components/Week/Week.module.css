@@ -1,6 +1,7 @@
 .week {
   display: flex;
   flex: 1;
+  margin: 2px 0;
 }
 
 .day {
