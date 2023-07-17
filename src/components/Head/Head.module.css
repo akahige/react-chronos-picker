@@ -4,8 +4,3 @@
   color: var(--color-gray);
   font-size: 12px;
 }
-
-.name {
-  display: flex;
-  flex: 1;
-}

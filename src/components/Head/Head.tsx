@@ -10,11 +10,9 @@ const MemoHead = memo(function Head() {
   return (
     <div className={style.container}>
       {days.map((d: string, i: number) => (
-        <div key={i} className={style.name}>
-          <SlicePropsProvider selector={weekDaySelector(d, i)}>
-            {dayNameElement || d}
-          </SlicePropsProvider>
-        </div>
+        <SlicePropsProvider key={i} selector={weekDaySelector(d, i)}>
+          {dayNameElement || d}
+        </SlicePropsProvider>
       ))}
     </div>
   );
