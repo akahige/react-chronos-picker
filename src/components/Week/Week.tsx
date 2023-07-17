@@ -6,6 +6,7 @@ import useProps from "../../hooks/useProps";
 
 function Week({ days }: WeekProps) {
   const { format, dayElement, weekClassName } = useProps();
+
   return (
     <div className={style.week + " " + weekClassName}>
       {days.map((d: string, j: number) => (

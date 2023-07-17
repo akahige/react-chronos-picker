@@ -95,6 +95,7 @@ function App() {
             dayElement={<CustomDayElement />}
             dayNameElement={<CustomDayNameElement />}
             headerElement={headerElement}
+            weekClassName="test"
           />
         </div>
       </div>
