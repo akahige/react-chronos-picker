@@ -18,14 +18,15 @@
   ],
   "main": "./dist/ReactChronosPicker.umd.js",
   "module": "./dist/ReactChronosPicker.es.js",
-  "types": "dist/index.d.ts",
-  "style": "dist/style.css",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/ReactChronosPicker.es.js",
       "require": "./dist/ReactChronosPicker.umd.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "style": "./dist/style.css"
     },
     "./package.json": "./package.json"
   },
