@@ -5,10 +5,10 @@ import style from "./Week.module.css";
 import useProps from "../../hooks/useProps";
 
 function Week({ days }: WeekProps) {
-  const { format, dayElement, weekClassName } = useProps();
+  const { format, dayElement, weekClassName, styles } = useProps();
 
   return (
-    <div className={style.week + " " + weekClassName}>
+    <div className={style.week + " " + weekClassName} style={styles?.week}>
       {days.map((d: string, j: number) => (
         <SliceProvider key={d} selector={daySelector(d, j)}>
           {dayElement || new Chronos(d, format).format("DD")}

@@ -44,6 +44,8 @@ function App() {
     setDate3(neDate);
   };
 
+  const styles = {};
+
   return (
     <>
       <div className={style.container}>
@@ -95,7 +97,6 @@ function App() {
             dayElement={<CustomDayElement />}
             dayNameElement={<CustomDayNameElement />}
             headerElement={headerElement}
-            weekClassName="test"
           />
         </div>
       </div>

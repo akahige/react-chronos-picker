@@ -8,7 +8,7 @@ import Week from "../Week/Week";
 
 function Month() {
   const { chronos } = useLocaleContext();
-  const { format, weekStart } = useProps();
+  const { format, weekStart, styles } = useProps();
 
   const weeks = useMemo(
     () => getWeeksInMonth(chronos, weekStart, format),
@@ -16,7 +16,7 @@ function Month() {
   );
 
   return (
-    <div className={style.container}>
+    <div className={style.container} style={styles?.month}>
       <div className={style.head}>
         <Head />
       </div>

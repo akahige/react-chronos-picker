@@ -78,6 +78,10 @@ body {
   height: 400px;
 }
 
+.containerClass {
+  padding: 0;
+}
+
 .customDay {
   display: flex;
   flex-direction: column;

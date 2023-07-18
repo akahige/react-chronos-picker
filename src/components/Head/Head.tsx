@@ -5,10 +5,10 @@ import useProps from "../../hooks/useProps";
 import SlicePropsProvider from "../../providers/SlicePropsProvider";
 
 const MemoHead = memo(function Head() {
-  const { days, dayNameElement } = useProps();
+  const { days, dayNameElement, styles } = useProps();
 
   return (
-    <div className={style.container}>
+    <div className={style.container} style={styles?.head}>
       {days.map((d: string, i: number) => (
         <SlicePropsProvider key={i} selector={weekDaySelector(d, i)}>
           {dayNameElement || d}

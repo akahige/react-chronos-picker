@@ -16,7 +16,7 @@ function ReactChronos({
 }: ReactChronosProps) {
   const newState = useChronosPickerConfig(props);
 
-  const className = `${style["theme-" + theme]} ${style.container}`;
+  const className = `${style["theme-" + theme]} ${style.container} `;
 
   return (
     <PropsProvider value={newState}>
@@ -25,7 +25,7 @@ function ReactChronos({
         isDateRange={isDateRange}
         onDateChange={onDateChange}
       >
-        <div className={className}>
+        <div className={className} style={props?.styles?.container}>
           <SliceProvider selector={headerSelector()}>
             {headerElement}
             <Month />
