@@ -25,7 +25,7 @@
     ".": {
       "import": "./dist/ReactChronosPicker.es.js",
       "require": "./dist/ReactChronosPicker.umd.js",
-      "types": "./dist/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "style": "./dist/index.css"
     },
     "./package.json": "./package.json"
@@ -48,7 +48,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc --emitDeclarationOnly && vite build",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "build:types": "tsc --emitDeclarationOnly",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
