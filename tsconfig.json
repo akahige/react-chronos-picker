@@ -15,7 +15,7 @@
     "jsx": "react-jsx",
 
     "declaration": true,
-    // "declarationDir": "./src/types",
+    "declarationDir": "./dist/types",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

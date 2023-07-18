@@ -44,8 +44,6 @@ function App() {
     setDate3(neDate);
   };
 
-  const styles = {};
-
   return (
     <>
       <div className={style.container}>

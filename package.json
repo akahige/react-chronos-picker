@@ -48,7 +48,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "tsc --emitDeclarationOnly && vite build",
     "build:types": "tsc --emitDeclarationOnly",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
