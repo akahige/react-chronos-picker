@@ -4,12 +4,10 @@ React Chronos Picker is a powerful, flexible, and highly customizable date picki
 
 ## Visuals
 
-<table>
-  <tr>
-    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/ac3f08fa-1912-49a0-86b1-bf566dadd139" alt="Screenshot 2023-07-16 at 18-15-48 React Chronos Picker"></td>
-    <td><img src="https://github.com/akahige/react-chronos-picker/assets/74684504/3ef41181-25b8-44be-94c1-8ecc1181bc96" alt="Screenshot 2023-07-16 at 18-13-57 React Chronos Picker"></td>
-  </tr>
-</table>
+![Screenshot 2023-07-16 at 18-13-57 React Chronos Picker](https://github.com/akahige/react-chronos-picker/assets/74684504/bdeb15b6-525b-4821-9912-3f2bd1bc03af)
+![Screenshot 2023-07-16 at 18-15-48 React Chronos Picker](https://github.com/akahige/react-chronos-picker/assets/74684504/3b5c57aa-7453-41a0-96c0-2176e3876710)
+![Screenshot 2023-07-18 at 22-05-24 Vite React TS](https://github.com/akahige/react-chronos-picker/assets/74684504/e712881f-4213-4e9f-96cf-5614f404b674)
+
 
 ## Installation
 
