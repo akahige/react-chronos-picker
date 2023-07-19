@@ -20,18 +20,6 @@ jobs:
       - name: Bump version and push tag
         id: tag_version
         run: |
-          if [[ "$(git log -1 --pretty=%B)" == *"[BREAK]"* ]]; then 
-            npm version major --no-git-tag-version
-          elif [[ "$(git log -1 --pretty=%B)" == *"[FEATURE]"* ]]; then 
-            npm version minor --no-git-tag-version
-          else
-            npm version patch --no-git-tag-version
-          fi
-          echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-          git config --global user.email "hello@manneta.com"
-          git config --global user.name "Akahige"
-          git commit -am "Bump version"
-          git push
           git tag "v$(node -p -e "require('./package.json').version")"
           git push --tags
       - run: npm publish
