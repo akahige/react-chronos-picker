@@ -8,12 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x, 20.x]
+    runs:
+      using: "node16"
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
         with:
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
