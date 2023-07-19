@@ -411,6 +411,12 @@ function MyCustomDay() {
 
 Detailed documentation and more examples will be available soon in the React Chronos Picker Storybook. Stay tuned for updates.
 
+## Credits
+
+This project's default design is based on the amazing work done by [Shyam Shahu Shrestha](https://www.figma.com/@shyamshahu). Special thanks to them for their contribution to the Figma community and their inspiring designs.
+
+Check out more of their fantastic work at their [dribbble Profile](https://dribbble.com/shyamshahushrestha).
+
 ## License
 
 This project is licensed under the terms of the MIT License. For more details, see the [LICENSE](LICENSE) file.
