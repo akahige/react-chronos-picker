@@ -31,6 +31,7 @@ jobs:
           git config --global user.email "hello@manneta.com"
           git config --global user.name "Akahige"
           git commit -am "Bump version"
+          git push
           git tag "v$(node -p -e "require('./package.json').version")"
           git push --tags
       - run: npm publish
