@@ -8,7 +8,6 @@ React Chronos Picker is a powerful, flexible, and highly customizable date picki
 ![Screenshot 2023-07-16 at 18-15-48 React Chronos Picker](https://github.com/akahige/react-chronos-picker/assets/74684504/3b5c57aa-7453-41a0-96c0-2176e3876710)
 ![Screenshot 2023-07-18 at 22-05-24 Vite React TS](https://github.com/akahige/react-chronos-picker/assets/74684504/e712881f-4213-4e9f-96cf-5614f404b674)
 
-
 ## Installation
 
 Use npm to install React Chronos Picker in your project:
@@ -188,6 +187,13 @@ Props:
 - `dayNameElement`: A custom day name element.
 
 - `headerElement`: A custom header element.
+
+- `styles`: An object allowing custom styling for different parts of the calendar. Not required in most cases, you can use it for exceptional cases where you need more control over the styles. Possible properties include:
+
+  - `container`: Styles for the main container.
+  - `month`: Styles for the month container.
+  - `head`: Styles for the header container.
+  - `week`: Styles for the week container.
 
 ### ReactChronosPicker
 
