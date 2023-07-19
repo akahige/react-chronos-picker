@@ -17,7 +17,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
       - run: npm run build
-      - name: Bump version and push tag
+      - name: Bump version
         id: tag_version
         run: |
           if [[ "$(git log -1 --pretty=%B)" == *"[BREAK]"* ]]; then 
