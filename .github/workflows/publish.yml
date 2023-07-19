@@ -27,7 +27,7 @@ jobs:
           else
             npm version patch --no-git-tag-version
           fi
-          echo ::set-output name=VERSION::$(node -p "require('./package.json').version")
+          echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
           git config --global user.email "hello@manneta.com"
           git config --global user.name "Akahige"
           git commit -am "Bump version"
