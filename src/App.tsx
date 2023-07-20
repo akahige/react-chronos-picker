@@ -52,7 +52,6 @@ function App() {
           weekend={weekend}
           monthFormat={"MMM"}
           weekDayFormat={"short"}
-          events={events}
           weekStart={1}
           date={date2}
           format={"YYYY-MM-DD"}

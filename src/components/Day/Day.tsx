@@ -18,7 +18,7 @@ const Day: FC = () => {
     onMouseEnter,
   } = useLocaleContext();
 
-  const { format, events } = useProps();
+  const { format, events = [] } = useProps();
 
   const current = new Chronos();
   const isCurrentDay = current.format(format) === day;
