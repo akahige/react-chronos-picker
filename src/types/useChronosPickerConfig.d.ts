@@ -7,7 +7,6 @@ declare type DateEvent = {
 
 declare type ChronosPickerConfigProps = {
   weekend: number[];
-  events: DayEvent[];
   format: string;
   monthFormat?: string;
   weekDayFormat?: string;
