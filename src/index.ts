@@ -6,6 +6,7 @@ import Header from "./components/Header";
 
 import useProps from "./hooks/useProps";
 import useLocaleContext from "./hooks/useLocaleContext";
+import ScrollingSelect from "./components/ScrollingSelect";
 
 export {
   ReactChronos,
@@ -15,4 +16,5 @@ export {
   Header,
   useProps,
   useLocaleContext,
+  ScrollingSelect,
 };
