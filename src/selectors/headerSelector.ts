@@ -4,12 +4,18 @@ import useDispatch from "../hooks/useDispatch";
 const headerSelector = () => (state: any, props: any) => {
   const { chronos } = state;
 
-  const { minMax } = props;
+  const { minMax, format } = props;
   const dispatch = useDispatch();
 
   const newDate = chronos.format("YYYY-MM");
-  const min = new Chronos(minMax[0], "YYYY-MM");
-  const max = new Chronos(minMax[1], "YYYY-MM");
+  const min = new Chronos(
+    new Chronos(minMax[0], format).format("YYYY-MM"),
+    "YYYY-MM"
+  );
+  const max = new Chronos(
+    new Chronos(minMax[1], format).format("YYYY-MM"),
+    "YYYY-MM"
+  );
 
   const nextDate = add(new Chronos(newDate, "YYYY-MM"), 1, "months");
   const previousDate = subtract(new Chronos(newDate, "YYYY-MM"), 1, "months");

@@ -69,7 +69,7 @@ function App() {
           weekend={weekend}
           events={events}
           weekStart={2}
-          format={"YYYY-MM-DD"}
+          format={"MM/DD/YYYY"}
           onDateChange={handleDateChange}
           dayElement={<Day />}
           dayNameElement={<Name />}

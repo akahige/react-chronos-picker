@@ -10,12 +10,18 @@ import useProps from "../../hooks/useProps";
 
 const MonthPicker: React.FC = () => {
   const { chronos, navigateToMonth } = useLocaleContext();
-  const { minMax, monthFormat } = useProps();
+  const { minMax, monthFormat, format } = useProps();
 
   const [open, setOpen] = useState(false);
 
-  const min = new Chronos(minMax[0], "YYYY-MM");
-  const max = new Chronos(minMax[1], "YYYY-MM");
+  const min = new Chronos(
+    new Chronos(minMax[0], format).format("YYYY-MM"),
+    "YYYY-MM"
+  );
+  const max = new Chronos(
+    new Chronos(minMax[1], format).format("YYYY-MM"),
+    "YYYY-MM"
+  );
 
   const years = getYearsList(min, max);
   const months = getMonthsList(chronos, min, max);
