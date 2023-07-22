@@ -68,7 +68,6 @@ function App() {
           theme={"dark"}
           weekend={weekend}
           events={events}
-          date={date}
           weekStart={2}
           format={"YYYY-MM-DD"}
           onDateChange={handleDateChange}

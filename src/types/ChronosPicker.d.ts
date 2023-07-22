@@ -1,6 +1,6 @@
 declare type ReactChronosProps = {
   weekend: number[];
-  date: string[];
+  date?: string[];
   format: string;
   theme: string;
   monthFormat?: string;

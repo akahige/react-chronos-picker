@@ -9,7 +9,7 @@ import SliceProvider from "../../providers/SliceProvider";
 function ReactChronos({
   headerElement,
   theme,
-  date,
+  date = [],
   isDateRange,
   onDateChange,
   ...props
