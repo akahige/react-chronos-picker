@@ -1,13 +1,13 @@
 // hooks/useChronosPickerConfig.ts
 import { useMemo } from "react";
-import { getWeekdayNames } from "@asidd/chronos";
+import Chronos, { add, getWeekdayNames, subtract } from "@asidd/chronos";
 
 const useChronosPickerConfig = ({
   weekend,
   format,
   monthFormat = "MMMM",
   weekDayFormat = "narrow",
-  minMax,
+  minMax = [],
   dayElement,
   dayNameElement,
   events,
@@ -15,6 +15,10 @@ const useChronosPickerConfig = ({
   ...props
 }: ChronosPickerConfigProps) => {
   return useMemo(() => {
+    const min =
+      minMax[0] || subtract(new Chronos(), 100, "years").format(format);
+    const max = minMax[1] || add(new Chronos(), 100, "years").format(format);
+
     const days = getWeekdayNames(weekStart, weekDayFormat);
     return {
       monthFormat,
@@ -22,7 +26,7 @@ const useChronosPickerConfig = ({
       dayNameElement,
       days,
       format,
-      minMax,
+      minMax: [min, max],
       weekend,
       events,
       weekStart,

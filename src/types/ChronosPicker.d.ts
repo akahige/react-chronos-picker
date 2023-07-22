@@ -6,7 +6,7 @@ declare type ReactChronosProps = {
   monthFormat?: string;
   weekDayFormat?: string;
   onDateChange: (date: string[]) => void;
-  minMax: string[];
+  minMax?: string[];
   dayElement?: ReactNode;
   dayNameElement?: ReactNode;
   headerElement?: ReactNode;

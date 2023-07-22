@@ -72,7 +72,6 @@ function App() {
           weekStart={2}
           format={"YYYY-MM-DD"}
           onDateChange={handleDateChange}
-          minMax={["2022-06-14", "2023-08-18"]}
           dayElement={<Day />}
           dayNameElement={<Name />}
           headerElement={<Header />}
